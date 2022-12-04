@@ -100,10 +100,10 @@ class MainWindow(QMainWindow):
             browser.find_element(By.CSS_SELECTOR, '.component_entry').screenshot(path)
             image = Image.open('test.png')
 
-            #원래사진으로 나오게하기전
+            croppedimage = image.crop((0, 20, 300, 300))
+            croppedimage.save('test.png')            
 
-            croppedimage = image.crop((0, 20, 200, 130))
-            croppedimage.save('test.png')
+            #원래사진으로 나오게하기전
 
             pixmap = QPixmap('test.png')
             self.lbl.setPixmap(pixmap)
