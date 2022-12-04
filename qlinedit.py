@@ -1,5 +1,3 @@
-
-
 import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit
 
@@ -11,13 +9,12 @@ class MyApp(QWidget):
         self.initUI()
 
     def initUI(self):
- 
         self.lbl = QLabel(self)
         self.lbl.move(60, 40)
 
-        self.qle = QLineEdit(self)
-        self.qle.move(60, 100)
-        self.qle.returnPressed.connect(self.onChanged)
+        qle = QLineEdit(self)
+        qle.move(60, 100)
+        qle.textChanged[str].connect(self.onChanged)
 
         self.setWindowTitle('QLineEdit')
         self.setGeometry(300, 300, 300, 200)

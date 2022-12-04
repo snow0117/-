@@ -3,8 +3,8 @@ import sys
 from PIL import Image
 
 from PyQt5.QtWidgets import QApplication, QListWidget, \
-    QListWidgetItem, QMainWindow, QPushButton, QLineEdit
-from PyQt5.QtGui import QIcon
+    QListWidgetItem, QMainWindow, QPushButton, QLineEdit, QLabel
+from PyQt5.QtGui import QIcon, QPixmap
 
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -50,6 +50,9 @@ class MainWindow(QMainWindow):
         self.listwidget = QListWidget(self)
         self.listwidget.resize(500, 200)
 
+        self.lbl = QLabel(self)
+        self.lbl.move(0, 200)
+
         """ 
         self.listwidget.insertItem(0, "Chrome")
         self.listwidget.insertItem(1, "Explorer")
@@ -92,10 +95,22 @@ class MainWindow(QMainWindow):
             time.sleep(0.1)
 
             path = r"D:\pyq5연습\test.png"
+
+            #초기파일
             browser.find_element(By.CSS_SELECTOR, '.component_entry').screenshot(path)
-            
+            image = Image.open('test.png')
+
+            #원래사진으로 나오게하기전
+
+            croppedimage = image.crop((0, 20, 200, 130))
+            croppedimage.save('test.png')
+
+            pixmap = QPixmap('test.png')
+            self.lbl.setPixmap(pixmap)
+            self.lbl.adjustSize()
 
             print("스크린샷 완료")
+
 
             
 
