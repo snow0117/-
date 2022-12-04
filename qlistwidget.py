@@ -1,5 +1,6 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QListWidget, QListWidgetItem, QMainWindow, QPushButton
+from PyQt5.QtWidgets import QApplication, \
+QListWidget, QListWidgetItem, QMainWindow, QPushButton, QLabel
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -8,6 +9,9 @@ class MainWindow(QMainWindow):
         self.setGeometry(300, 300, 500, 300)
         self.setWindowTitle('Two QListWidget Window')
 
+
+        #이미지 출력할 라벨
+        
 
         # 첫 번째 QListWidget 추가
 
