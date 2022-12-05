@@ -97,10 +97,10 @@ class MainWindow(QMainWindow):
             path = r"D:\pyq5연습\test.png"
 
             #초기파일
-            browser.find_element(By.CSS_SELECTOR, '.component_entry').screenshot(path)
+            browser.find_element(By.CSS_SELECTOR, '.entry_title._guide_lang').screenshot(path)
             image = Image.open('test.png')
 
-            croppedimage = image.crop((0, 20, 300, 300))
+            croppedimage = image.crop((0, 20, 500, 300))
             croppedimage.save('test.png')            
 
             #원래사진으로 나오게하기전
